@@ -1,30 +1,32 @@
-# src/main.py
 from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
-import numpy as np
+import pandas as pd
 
-# Load model saat startup (1x saja)
-model = joblib.load("models/titanic_model.pkl")
 
-app = FastAPI(title="Titanic Survival Prediction API")
-
-# Schema input menggunakan Pydantic
-class Passenger(BaseModel):
+class TitanicInput(BaseModel):
     Pclass: int
-    Sex: int          # 0 = female, 1 = male
+    Sex: str
     Age: float
     SibSp: int
     Parch: int
     Fare: float
-    Embarked: int     # 0, 1, 2 (C, Q, S tergantung encoder)
+    Embarked: str
+
+
+app = FastAPI()
+model = joblib.load("titanic_model.pkl")
+
+
+def preprocess_input(data: TitanicInput):
+    df = pd.DataFrame([data.dict()])
+    df["Sex"] = df["Sex"].map({"male": 0, "female": 1})
+    df["Embarked"] = df["Embarked"].map({"S": 0, "C": 1, "Q": 2})
+    return df
+
 
 @app.post("/predict")
-def predict(passenger: Passenger):
-    data = np.array([[ 
-        passenger.Pclass, passenger.Sex, passenger.Age,
-        passenger.SibSp, passenger.Parch, passenger.Fare, passenger.Embarked
-    ]])
-
-    prediction = model.predict(data)[0]
-    return {"survived": int(prediction)}
+def predict(data: TitanicInput):
+    df = preprocess_input(data)
+    prediction = model.predict(df)
+    return {"prediction": int(prediction[0])}
