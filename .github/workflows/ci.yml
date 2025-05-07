@@ -31,3 +31,26 @@ jobs:
     - name: 🧪 Run Pytest
       run: |
         pytest
+
+  build-docker:
+    runs-on: ubuntu-latest
+    needs: build-test  # Hanya dijalankan setelah build-test selesai
+
+    steps:
+    - name: 📥 Checkout Repo
+      uses: actions/checkout@v3
+
+    - name: 🐳 Build Docker image
+      run: |
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/mlops-titanic-api:latest .
+
+    - name: 🚀 Login to DockerHub
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: |
+        echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+
+    - name: 🛠️ Push Docker image to DockerHub
+      run: |
+        docker push ${{ secrets.DOCKER_USERNAME }}/mlops-titanic-api:latest
