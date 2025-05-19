@@ -1,6 +1,6 @@
-## 🚀 **Project No. 1: End-to-End MLOps Pipeline with CI/CD, Docker, Kubernetes & Model Monitoring**
+## 🚀 End-to-End MLOps Pipeline with CI/CD, Docker, Kubernetes & Model Monitoring
 
-### 🎯 **Project Objective**
+### 🎯 Project Objective
 
 Membangun sistem **MLOps pipeline lengkap** yang mencakup seluruh siklus hidup model Machine Learning, mulai dari **data ingestion**, **training**, **API deployment**, hingga **automated CI/CD dan production monitoring** menggunakan teknologi containerization dan orchestration. Proyek ini menargetkan deployment yang **reliable**, **scalable**, dan siap untuk lingkungan **real-world production**.
 
@@ -355,20 +355,6 @@ spec:
    * Gunakan Postman atau `curl` ke `http://<host>:<port>/predict`
 3. **Monitoring / Logging / Optional CI/CD**
 
----
-
-💬 *Silakan bantu saya melanjutkan dari sini, misalnya buatkan `service.yaml`, cara akses API-nya di Minikube, atau rekomendasi deployment best practices.*
-
----
-
-Kalau kamu simpan teks ini di Notepad/Docs, nanti tinggal paste ke ChatGPT baru dan langsung lanjut tanpa perlu jelasin dari nol. Mau sekalian aku buatin `service.yaml` juga?
-/////////////////////////////////////////////////////////////////////////////////
-
-Tentu! Berikut adalah template **README.md** yang bisa kamu gunakan untuk proyek ini. Template ini sudah mencakup penjelasan tentang proyek, cara setup, dan cara penggunaan API.
-
----
-
-````markdown
 # Titanic Machine Learning API - MLOps Project
 
 This project demonstrates the deployment of a Titanic Machine Learning model using **FastAPI** and **Kubernetes**. The goal is to deploy a machine learning model to a production-ready environment using **Docker**, **Kubernetes**, and **CI/CD** principles.
