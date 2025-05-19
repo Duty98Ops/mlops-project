@@ -565,37 +565,3 @@ mlops-project/
 ├── requirements.txt       # Python dependencies
 └── README.md              # Project documentation (this file)
 ```
-
----
-
-## 📬 **Contact**
-
-Feel free to reach out for any questions or suggestions:
-
-* Email: [your.email@example.com](mailto:your.email@example.com)
-* GitHub: [YourGitHubProfile](https://github.com/your-username)
-
----
-
-## 📝 **License**
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-```
-
----
-
-### Penjelasan **README.md**:
-- **Project Overview**: Menjelaskan apa tujuan proyek ini.
-- **Technologies Used**: Daftar teknologi yang digunakan (FastAPI, Docker, Kubernetes, dll).
-- **Setup Instructions**: Langkah-langkah untuk menyiapkan dan menjalankan aplikasi di local machine dan Kubernetes.
-- **API Usage**: Cara menggunakan API dengan contoh request dan response.
-- **Optional Sections**: Monitoring, CI/CD, dan struktur folder proyek.
-
----
-
-Kamu bisa **copy-paste** README ini dan sesuaikan jika ada bagian yang ingin ditambah atau dikurangi. Jangan lupa untuk mengganti placeholder seperti `your-username` dan `your.email@example.com` dengan informasi yang sesuai.
-
-Sudah siap untuk push ke GitHub?
-```
-
